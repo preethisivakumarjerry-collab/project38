@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Toast</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f4f6f9;
+    }
+
+    /* Animation */
+    .toast {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      animation: fadeSlide 0.5s ease;
+    }
+
+    @keyframes fadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="text-center">
+
+  <!-- Button -->
+  <button class="btn btn-primary" id="showToast">
+    Show Toast 🔔
+  </button>
+
+  <!-- Toast -->
+  <div class="toast" id="myToast" data-delay="3000">
+    <div class="toast-header">
+      <strong class="mr-auto">Notification</strong>
+      <button type="button" class="ml-2 close" data-dismiss="toast">&times;</button>
+    </div>
+    <div class="toast-body">
+      This is a simple animated toast.
+    </div>
+  </div>
+
+</div>
+
+<script>
+  $(document).ready(function(){
+    $("#showToast").click(function(){
+      $("#myToast").toast('show');
+    });
+  });
+</script>
+
+</body>
+</html>
